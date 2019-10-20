@@ -8,7 +8,7 @@
 
 ![teaser](images/teaser.png "teaser")
 
-**Figure 1**: From sparse lines that coarsely describe a face, photorealistic images can be generated using our conditional self-attention generative adversarial network (CSAGAN). With different levels of details in the conditional line maps, CSAGAN generates realistic face images that preserve the entire facial structure. Previous works fail to synthesize certain structural parts (i.e. the mouth in this case) when the conditional line maps lack corresponding shape details.
+**Figure 1**: From sparse lines that coarsely describe a face, photorealistic images can be generated using our conditional self-attention generative adversarial network (CSAGAN). With different levels of details in the conditional line maps, CSAGAN generates realistic face images that preserve the entire facial structure. Previous works (pix2pix[1] and SketchyGAN[2]) fail to synthesize certain structural parts (i.e. the mouth in this case) when the conditional line maps lack corresponding shape details.
 
 ## Abstract
 In this paper, we explore the task of generating photo-realistic face images from lines. Previous methods based on conditional generative adversarial networks (cGANs) have shown their power to generate visually plausible images when a conditional image and an output image share well-aligned structures. However, these models fail to synthesize face images with a whole set of well-defined structures, e.g. eyes, noses, mouths, etc., especially when the conditional line map lacks one or several parts. To address this problem, we propose a conditional self-attention generative adversarial network (CSAGAN). We introduce a conditional self-attention mechanism to cGANs to capture long-range dependencies between different regions in faces. We also build a multi-scale discriminator. The large-scale discriminator enforces the completeness of global structures and the small-scale discriminator encourages fine details, thereby enhancing the realism of generated face images. 
@@ -25,6 +25,11 @@ We evaluate the proposed model on the CelebA-HD dataset by two perceptual user s
 
 ## Acknowledgements:
 This work was supported by the National Key Research & Development Plan of China under Grant 2016YFB1001402, the National Natural Science Foundation of China (NSFC) under Grants 61632006, 61622211, and 61620106009, as well as the Fundamental Re-search Funds for the Central Universities under Grants WK3490000003 and WK2100100030.
+
+## Main References:
+[1] PhillipIsola, Jun-YanZhu, TinghuiZhou, and Alexei A. Efros. 2017. Image-to-Image Translation with Conditional Adversarial Networks. In 2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR). 5967–5976.
+
+[2] Wengling Chen and James Hays. 2018. SketchyGAN: Towards Diverse and Realistic Sketch to Image Synthesis. In 2018 IEEE Conference on Computer Vision and Pattern Recognition (CVPR). 9416–9425. 
 
 ## Downloads
 [Paper]()
