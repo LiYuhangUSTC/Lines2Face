@@ -27,11 +27,11 @@ We evaluate the proposed model on the CelebA-HD dataset by two perceptual user s
 This work was supported by the National Key Research & Development Plan of China under Grant 2016YFB1001402, the National Natural Science Foundation of China (NSFC) under Grants 61632006, 61622211, and 61620106009, as well as the Fundamental Re-search Funds for the Central Universities under Grants WK3490000003 and WK2100100030.
 
 ## Main References:
-[1] PhillipIsola, Jun-YanZhu, TinghuiZhou, and Alexei A. Efros. 2017. Image-to-Image Translation with Conditional Adversarial Networks. In 2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR). 5967–5976.
+[1] Phillip Isola, Jun-Yan Zhu, Tinghui Zhou, and Alexei A. Efros. 2017. Image-to-Image Translation with Conditional Adversarial Networks. In 2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR). 5967–5976.
 
 [2] Wengling Chen and James Hays. 2018. SketchyGAN: Towards Diverse and Realistic Sketch to Image Synthesis. In 2018 IEEE Conference on Computer Vision and Pattern Recognition (CVPR). 9416–9425. 
 
 ## Downloads
-[Paper]()
+[Paper](https://arxiv.org/abs/1910.08914)
 
 Code:coming soon.
