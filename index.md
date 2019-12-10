@@ -34,4 +34,4 @@ This work was supported by the National Key Research & Development Plan of China
 ## Downloads
 [Paper](https://arxiv.org/abs/1910.08914)
 
-Code:coming soon.
+[Code](https://github.com/LiYuhangUSTC/Lines2Face)
