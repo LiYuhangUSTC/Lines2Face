@@ -4,12 +4,20 @@ This is the official implementation of paper **LinesToFacePhoto: Face Photo Gene
 ![teaser](images/teaser.png "teaser")
 
 ### Prerequisites
-TensorFlow 1.8.0, Python 3.6, NumPy
+TensorFlow 1.8.0, Python 3.6, NumPy, scipy, PIL, tqdm
 
-### Usage
-The pre-trained model is uploading...
+### Data
+We use TFrecord file for our dataset. See /tools/Image_mask_edge_df.py for details. Since the TFrecord file we use may be redundant, you can modify it to meet your need.
 
-### 
+The face photo dataset we use is [CelebA-HQ](https://github.com/tkarras/progressive_growing_of_gans).
+
+The method we use to get line maps is the same as that in [SketchyGAN](https://github.com/wchen342/SketchyGAN), which is basicall [HED](https://github.com/s9xie/hed) + postprocessing. 
+
+Distance fields (df's) are obtaind by distance transform.
+
+The masks are not used in this project.
+
+### Download 
 [Project page](https://liyuhangustc.github.io/Lines2Face/)
 [Paper](https://arxiv.org/abs/1910.08914)
 
