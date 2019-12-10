@@ -17,8 +17,9 @@ Distance fields (df's) are obtaind by distance transform.
 
 The masks are not used in this project.
 
-### Download 
+### Links 
 [Project page](https://liyuhangustc.github.io/Lines2Face/)
+
 [Paper](https://arxiv.org/abs/1910.08914)
 
 ### Cite
