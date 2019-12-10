@@ -36,5 +36,7 @@ The pre-trained model is uploading...
 
 ### Credits
 MRU code by [SketchyGAN](https://github.com/wchen342/SketchyGAN)
+
 Self-atttention modual code modified from [Self-Attention-GAN-Tensorflow](https://github.com/taki0112/Self-Attention-GAN-Tensorflow)
+
 Some code by [pix2pix-tensorflow](https://github.com/affinelayer/pix2pix-tensorflow)
