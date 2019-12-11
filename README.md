@@ -1,6 +1,8 @@
 # Lines2Face
 This is the official implementation of paper **LinesToFacePhoto: Face Photo Generation from Lines with Conditional Self-Attention Generative Adversarial Network**. 
 
+Working in progress...
+
 ![teaser](images/teaser.png "teaser")
 
 ### Prerequisites
