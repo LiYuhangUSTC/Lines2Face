@@ -1,0 +1,13 @@
+CUDA_VISIBLE_DEVICES=3,2 python test_ft.py \
+--mode test \
+--checkpoint /gdata/liyh/data/CelebA-HD/checkpoint/ft_exp-0008_quadruple \
+--output_dir /gdata/liyh/data/CelebA-HD/output/release_quadruple \
+--max_epochs 200 \
+--input_dir /gdata/liyh/data/CelebA-HD/data/tfrecord/test  \
+--batch_size 1 \
+--num_examples 6000 \
+--discriminator quadruple \
+--input_type df \
+--scale_size 256 \
+--target_size 256 \
+--use_attention

@@ -13,8 +13,8 @@ class TrainOptions(BaseOptions):
         self.parser.add_argument('--debug', action='store_true', help='only do one epoch and displays at each iteration')
 
          ## training hyper-parameters
-        self.parser.add_argument("--lr_gen", type=float, default=0.0002, help="initial learning rate for adam")
-        self.parser.add_argument("--lr_discrim", type=float, default=0.00002, help="initial learning rate for adam")
+        self.parser.add_argument("--lr_gen", type=float, default=0.0001, help="initial learning rate for adam")
+        self.parser.add_argument("--lr_discrim", type=float, default=0.0004, help="initial learning rate for adam")
         self.parser.add_argument("--beta1", type=float, default=0.5, help="momentum term of adam")
 
         self.parser.add_argument("--l1_weight", type=float, default=100.0, help="weight on L1 term for generator gradient")
