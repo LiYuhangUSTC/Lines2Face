@@ -1,8 +1,8 @@
 # test
-python test.py \
+CUDA_VISIBLE_DEVICES=1,2 python test.py \
 --mode test \
 --checkpoint checkpoint \
---output_dir /gdata/liyh/data/CelebA-HD/output/release_quadruple \
+--output_dir output \
 --max_epochs 200 \
 --input_dir /gdata/liyh/data/CelebA-HD/data/tfrecord/test  \
 --batch_size 1 \

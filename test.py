@@ -193,10 +193,6 @@ def save_images(fetches, step=None):
     if not os.path.exists(image_dir):
         os.makedirs(image_dir)
     
-    mat_dir = os.path.join(a.output_dir, "mats")
-    if not os.path.exists(mat_dir):
-        os.makedirs(mat_dir)
-    
     filesets = []
     if a.load_tfrecord == True:
         for i, fn in enumerate(fetches["filenames"]):
@@ -349,6 +345,9 @@ def main():
         if a.checkpoint is not None:
             checkpoint = tf.train.latest_checkpoint(a.checkpoint)
             restore_saver.restore(sess, checkpoint)
+            #restore_saver.save(sess, os.path.join(a.output_dir, "model"), global_step=sv.global_step)
+            #return
+            
 
         max_steps = 2**32
         if a.max_epochs is not None:
