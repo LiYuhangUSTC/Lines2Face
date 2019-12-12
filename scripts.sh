@@ -1,6 +1,7 @@
-CUDA_VISIBLE_DEVICES=3,2 python test_ft.py \
+# test
+python test.py \
 --mode test \
---checkpoint /gdata/liyh/data/CelebA-HD/checkpoint/ft_exp-0008_quadruple \
+--checkpoint checkpoint \
 --output_dir /gdata/liyh/data/CelebA-HD/output/release_quadruple \
 --max_epochs 200 \
 --input_dir /gdata/liyh/data/CelebA-HD/data/tfrecord/test  \

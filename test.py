@@ -27,15 +27,6 @@ NUM_SAVE_IMAGE = 100
 Model = collections.namedtuple("Model", "outputs, predict_real, predict_fake, discrim_loss, discrim_grads_and_vars, gen_loss_GAN, gen_loss_L1, gen_loss_fm, gen_loss_style, gen_grads_and_vars, train")
 seed = random.randint(0, 2**31 - 1)
 
-if a.train_stage == 'stage_two' :
-    a.attention = True
-    a.mode = 'train'
-if a.train_stage == 'stage_three':
-    a.attention = True
-    a.mode = 'train'
-if a.mode == 'test':
-    a.attention = True
-
 
 ##################### Model #######################################################
 def create_model(inputs, targets):
@@ -275,13 +266,12 @@ def main():
     if not os.path.exists(a.output_dir):    
         os.makedirs(a.output_dir)
 
-
     if a.checkpoint is None:
         raise Exception("checkpoint required")
-    
+        
     a.scale_size = a.target_size
     a.flip = False
-    
+        
     for k, v in a._get_kwargs():
         print(k, "=", v)
 
@@ -323,11 +313,33 @@ def main():
             "outputs": tf.map_fn(tf.image.encode_png, converted_outputs[:num_display_images], dtype=tf.string, name="output_pngs")
         }
 
+    ## summaries
+    with tf.name_scope("inputs_summary"):
+        tf.summary.image("inputs", converted_inputs)
+    with tf.name_scope("targets_summary"):
+        tf.summary.image("targets", converted_targets)
+    with tf.name_scope("outputs_summary"):
+        tf.summary.image("outputs", converted_outputs)
+    with tf.name_scope("predict_real_summary"):
+        tf.summary.image("predict_real", tf.image.convert_image_dtype(model.predict_real, dtype=tf.uint8))
+    with tf.name_scope("predict_fake_summary"):
+        tf.summary.image("predict_fake", tf.image.convert_image_dtype(model.predict_fake, dtype=tf.uint8))
+
+    tf.summary.scalar("discriminator_loss", model.discrim_loss)
+    tf.summary.scalar("generator_loss_GAN", model.gen_loss_GAN)
+    tf.summary.scalar("generator_loss_L1", model.gen_loss_L1)
+    if a.fm:
+        tf.summary.scalar("generator_loss_fm", model.gen_loss_fm)
+
+    for var in tf.trainable_variables():
+        tf.summary.histogram(var.op.name + "/values", var)
+    #    tf.summary.histogram(var.op.name + "/gradients", grad)
+
     with tf.name_scope("parameter_count"):
         parameter_count = tf.reduce_sum([tf.reduce_prod(tf.shape(v)) for v in tf.trainable_variables()])
  
     saver = tf.train.Saver(max_to_keep=1)
-    logdir = a.output_dir
+    logdir = a.output_dir if (a.trace_freq > 0 or a.summary_freq > 0) else None
     sv = tf.train.Supervisor(logdir=logdir, save_summaries_secs=0, saver=None)
     sess_config = tf.ConfigProto(allow_soft_placement=True)
     sess_config.gpu_options.allow_growth = True
@@ -344,13 +356,14 @@ def main():
         if a.max_steps is not None:
             max_steps = a.max_steps
 
-
-        max_steps = min(examples.steps_per_epoch, max_steps)
-        for step in range(max_steps):
-            results = sess.run(display_fetches)
-            filesets = save_images(results, step=step)
-            for i, f in enumerate(filesets):
-                print("evaluated image", f["name"])
+        if a.mode == "test":
+            max_steps = min(examples.steps_per_epoch, max_steps)
+            for step in range(max_steps):
+                results = sess.run(display_fetches)
+                filesets = save_images(results, step=step)
+                for i, f in enumerate(filesets):
+                    print("evaluated image", f["name"])
+           
     return
 
 main()
