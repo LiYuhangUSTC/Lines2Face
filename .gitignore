@@ -1,0 +1,10 @@
+*.pyc
+*.idea
+*.out
+*.err
+**/*.out
+**/*.err
+checkpoint/*
+__pycache__*
+output/*
+input/*
