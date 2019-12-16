@@ -270,17 +270,18 @@ def main():
         
     for k, v in a._get_kwargs():
         print(k, "=", v)
+    
 
     ## read TFRecordDataset    
     examples, iterator  = read_tfrecord()
     print("examples count = %d" % examples.count)
-
     ## create model
     model, restore_saver = create_model(examples.inputs, examples.targets)
-
     inputs = deprocess(examples.inputs)
     targets = deprocess(examples.targets)
+    filenames = examples.filenames
     outputs = deprocess(model.outputs)
+        
 
     def convert(image):
         if a.aspect_ratio != 1.0:
@@ -303,7 +304,7 @@ def main():
     num_display_images = 3000
     with tf.name_scope("encode_images"):
         display_fetches = {
-            "filenames": examples.filenames,
+            "filenames": filenames,
             "inputs": tf.map_fn(tf.image.encode_png, converted_inputs[:num_display_images], dtype=tf.string, name="input_pngs"),
             "targets": tf.map_fn(tf.image.encode_png, converted_targets[:num_display_images], dtype=tf.string, name="target_pngs"),
             "outputs": tf.map_fn(tf.image.encode_png, converted_outputs[:num_display_images], dtype=tf.string, name="output_pngs")
@@ -350,13 +351,15 @@ def main():
             
 
         max_steps = 2**32
+        # steps_per_epoch = examples.steps_per_epoch
+        steps_per_epoch = int(math.ceil(a.num_examples / a.batch_size))
         if a.max_epochs is not None:
-            max_steps = examples.steps_per_epoch * a.max_epochs
+            max_steps = steps_per_epoch * a.max_epochs
         if a.max_steps is not None:
             max_steps = a.max_steps
 
         if a.mode == "test":
-            max_steps = min(examples.steps_per_epoch, max_steps)
+            max_steps = min(steps_per_epoch, max_steps)
             for step in range(max_steps):
                 results = sess.run(display_fetches)
                 filesets = save_images(results, step=step)

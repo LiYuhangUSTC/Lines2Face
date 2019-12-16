@@ -11,6 +11,7 @@ import random
 import math
 import collections
 import ops
+import scipy.io as sio
 
 from options.train_options import TrainOptions
 
@@ -243,3 +244,16 @@ def read_tfrecord():
         count=len(tfrecord_fn),
         steps_per_epoch=steps_per_epoch
     ), iterator
+
+    
+def read_image():
+    file_path = '/gdata/liyh/data/CelebA-HD/data/Mats/test/000009.mat'
+    label = 'input'
+    df = sio.loadmat(file_path)[label]
+    df = tf.reshape(df, [512, 512, 1, 1])   
+    #df = df/tf.reduce_max(df) # normalize the distance fields, by the max value, to fit grayscale
+    df = df / a.df_norm_value # normalize the distance fields, by a given value, to fit grayscale
+    df = (df) * 2. - 1.    
+    df = transform(tf.image.grayscale_to_rgb(df))
+    condition = df
+    return condition, condition, '000009'

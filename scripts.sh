@@ -1,10 +1,10 @@
 # test
-CUDA_VISIBLE_DEVICES=1,2 python test.py \
+python test.py \
 --mode test \
 --checkpoint checkpoint \
 --output_dir output \
 --max_epochs 200 \
---input_dir /gdata/liyh/data/CelebA-HD/data/tfrecord/test  \
+--input_dir input  \
 --batch_size 1 \
 --num_examples 6000 \
 --discriminator quadruple \
