@@ -9,7 +9,7 @@ Working in progress...
 TensorFlow 1.8.0, Python 3.6, NumPy, scipy, PIL, tqdm
 
 ### Data
-We use TFrecord file for our dataset. See /tools/Image_mask_edge_df.py for details. Since the TFrecord file we use may be redundant, you can modify it to meet your need.
+We use TFrecord file for our dataset. See /data.py and /tools/Image_mask_edge_df.py for details. Since the TFrecord file we use may be redundant, you can modify it to meet your need.
 
 The face photo dataset we use is [CelebA-HQ](https://github.com/tkarras/progressive_growing_of_gans).
 
@@ -19,11 +19,18 @@ Distance fields (df's) are obtaind by distance transform.
 
 The masks are not used in this project.
 
+### Pre-trained model
+The pre-trained model can be download at [BaiduPan(uploading..)]() or [GoogleDrive](https://drive.google.com/open?id=1VyQN9wSVYU5oJaBnUTaw-Z2kV3Hz--uu)
+
+### Test
+The data TFrecord file should be prepared as described above and put in /input. The pretrained model should be downloaded into /checkpoint/quad. Example script of testing can be found in /scripts.sh. The results are supposed to be in /output.
+
 ### Links 
 [Project page](https://liyuhangustc.github.io/Lines2Face/)
 
 [Paper](https://arxiv.org/abs/1910.08914)
 
+Pre-trained model: [BaiduPan(uploading..)]() or [GoogleDrive](https://drive.google.com/open?id=1VyQN9wSVYU5oJaBnUTaw-Z2kV3Hz--uu)
 ### Cite
 ```
 @inproceedings{Li:2019:LFP:3343031.3350854,
