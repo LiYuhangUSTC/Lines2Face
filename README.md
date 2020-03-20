@@ -20,7 +20,7 @@ Distance fields (df's) are obtaind by distance transform.
 The masks are not used in this project.
 
 ### Pre-trained model
-The pre-trained model can be download at [BaiduPan(uploading..)]() or [GoogleDrive](https://drive.google.com/open?id=1VyQN9wSVYU5oJaBnUTaw-Z2kV3Hz--uu)
+The pre-trained model can be download at [BaiduPan(uploading..)]() or [GoogleDrive](https://drive.google.com/folderview?id=1KnWpIUQJOIFwKBWlBhTY9Z9zT9oUGT7n)
 
 ### Test
 The data TFrecord file should be prepared as described above and put in /input. The pretrained model should be downloaded into /checkpoint/quad. Example script of testing can be found in /scripts.sh. The results are supposed to be in /output.
@@ -30,7 +30,7 @@ The data TFrecord file should be prepared as described above and put in /input. 
 
 [Paper](https://arxiv.org/abs/1910.08914)
 
-Pre-trained model: [BaiduPan(uploading..)]() or [GoogleDrive](https://drive.google.com/open?id=1VyQN9wSVYU5oJaBnUTaw-Z2kV3Hz--uu)
+Pre-trained model: [BaiduPan(uploading..)]() or [GoogleDrive](https://drive.google.com/folderview?id=1KnWpIUQJOIFwKBWlBhTY9Z9zT9oUGT7n)
 ### Cite
 ```
 @inproceedings{Li:2019:LFP:3343031.3350854,
